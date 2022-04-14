@@ -9,7 +9,6 @@ from datetime import datetime
 from typing import List
 from pyrogram.types import InlineKeyboardButton
 from database.users_chats_db import db
-import requests
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
