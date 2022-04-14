@@ -9,8 +9,8 @@ from database.filters_mdb import(
 )
 
 from database.connections_mdb import active_connection
-from utils import split_quotes
-from config import ADMINS
+from utils import get_file_id, parser, split_quotes
+from info import ADMINS
 
 
 @Client.on_message(filters.command(['filter', 'add']) & filters.incoming)
@@ -107,7 +107,7 @@ async def addfilter(client, message):
     else:
         return
 
-    await add_filter(grp_id, text, reply_text, btn, alert)
+    await add_filter(grp_id, text, reply_text, btn, fileid, alert)
 
     await message.reply_text(
         f"Filter for  `{text}`  added in  **{title}**",
