@@ -23,12 +23,7 @@ from database.connections_mdb import(
 
 @trojanz.on_callback_query()
 async def cb_handler(client, query):
-        
-
-    elif query.data == "delallconfirm":
-        userid = query.from_user.id
-        chat_type = query.message.chat.type
-
+            
         if chat_type == "private":
             grpid  = await active_connection(str(userid))
             if grpid is not None:
