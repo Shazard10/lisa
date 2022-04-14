@@ -107,7 +107,7 @@ async def addfilter(client, message):
     else:
         return
 
-    await add_filter(grp_id, text, reply_text, btn, fileid, alert)
+    await add_filter(grp_id, text, reply_text, btn, alert)
 
     await message.reply_text(
         f"Filter for  `{text}`  added in  **{title}**",
