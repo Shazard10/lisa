@@ -1,6 +1,7 @@
 #(©)CodeXBotz
 import os
 import asyncio
+import random
 from pyrogram import Client, filters, __version__
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
@@ -10,7 +11,9 @@ from config import ADMINS, FORCE_MSG, START_MSG, OWNER_ID, CUSTOM_CAPTION, DISAB
 from helper_func import subscribed, encode, decode, get_messages
 from database.sql import add_user, query_msg, full_userbase
 
-
+PHOTO = [
+    "https://telegra.ph/file/d6cec3c8bda1aa4cfc570.jpg"
+]
 #=====================================================================================##
 
 WAIT_MSG = """"<b>Processing ...</b>"""
@@ -90,13 +93,17 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("😊 About Me", callback_data = "about"),
-                    InlineKeyboardButton("🔒 Close", callback_data = "close")
+                    InlineKeyboardButton("¯_( ͡° ͜ʖ ͡°)_/¯ 𝙊𝙒𝙉𝙀𝙍 ¯_( ͡° ͜ʖ ͡°)_/¯", url="https://t.me/PowerOfTG_Official")
+                ],
+                [
+                    InlineKeyboardButton("💥 𝙂𝙍𝙊𝙐𝙋", url="https://t.me/UrvashiTheaters"),
+                    InlineKeyboardButton("𝘾𝙃𝘼𝙉𝙉𝙀𝙇 💥", url="https://t.me/movies_club_2019")
                 ]
             ]
         )
-        await message.reply_text(
-            text = START_MSG.format(
+        await message.reply_photo(
+         photo=f"{random.choice(PHOTO)}",
+         caption = START_MSG.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
@@ -114,7 +121,7 @@ async def not_joined(client: Client, message: Message):
     buttons = [
         [
             InlineKeyboardButton(
-                "Join Channel",
+                "📢 Join Channel 📢",
                 url = client.invitelink)
         ]
     ]
@@ -122,8 +129,8 @@ async def not_joined(client: Client, message: Message):
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text = 'Try Again',
-                    url = f"https://t.me/{client.username}?start={message.command[1]}"
+                    text = '🔄 Try Again 🔄',
+                    url = f"https://t.me/{client.username}/{message.command[1]}"
                 )
             ]
         )
@@ -131,7 +138,8 @@ async def not_joined(client: Client, message: Message):
         pass
 
     await message.reply(
-        text = FORCE_MSG.format(
+        photo=f"{random.choice(PHOTO)}", 
+        caption = FORCE_MSG.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
@@ -181,11 +189,11 @@ async def send_text(client: Bot, message: Message):
         
         status = f"""<b><u>Broadcast Completed</u>
 
-Total Users: <code>{total}</code>
-Successful: <code>{successful}</code>
-Blocked Users: <code>{blocked}</code>
-Deleted Accounts: <code>{deleted}</code>
-Unsuccessful: <code>{unsuccessful}</code></b>"""
+👨‍👨‍👧‍👦 Total Users: <code>{total}</code>
+✅️ Successful: <code>{successful}</code>
+🚫 Blocked Users: <code>{blocked}</code>
+🚮 Deleted Accounts: <code>{deleted}</code>
+❌️ Unsuccessful: <code>{unsuccessful}</code></b>"""
         
         return await pls_wait.edit(status)
 
