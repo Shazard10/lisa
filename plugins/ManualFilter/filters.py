@@ -13,7 +13,7 @@ from utils import get_file_id, parser, split_quotes
 from config import ADMINS
 
 
-@Client.on_message(filters.command(['filter', 'add']) & filters.incoming)
+@Client.on_message(filters.command(['filter', 'save']) & filters.incoming)
 async def addfilter(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
@@ -270,3 +270,58 @@ async def delallconfirm(client, message):
             quote=True
         )
 
+@Client.on_message(filters.group & filters.text)
+async def give_filter(client,message):
+    group_id = message.chat.id
+    name = message.text
+
+    keywords = await get_filters(group_id)
+    for keyword in reversed(sorted(keywords, key=len)):
+        pattern = r"( |^|[^\w])" + re.escape(keyword) + r"( |$|[^\w])"
+        if re.search(pattern, name, flags=re.IGNORECASE):
+            reply_text, btn, alert, fileid = await find_filter(group_id, keyword)
+
+            if reply_text:
+                reply_text = reply_text.replace("\\n", "\n").replace("\\t", "\t")
+
+            if btn is not None:
+                try:
+                    if fileid == "None":
+                        if btn == "[]":
+                            await message.reply_text(reply_text, disable_web_page_preview=True)
+                        else:
+                            button = eval(btn)
+                            await message.reply_text(
+                                reply_text,
+                                disable_web_page_preview=True,
+                                reply_markup=InlineKeyboardMarkup(button)
+                            )
+                    else:
+                        if btn == "[]":
+                            await message.reply_cached_media(
+                                fileid,
+                                caption=reply_text or ""
+                            )
+                        else:
+                            button = eval(btn) 
+                            await message.reply_cached_media(
+                                fileid,
+                                caption=reply_text or "",
+                                reply_markup=InlineKeyboardMarkup(button)
+                            )
+                except Exception as e:
+                    print(e)
+                    pass
+                break 
+                
+    if SAVE_USER == "yes":
+        try:
+            await add_user(
+                str(message.from_user.id),
+                str(message.from_user.username),
+                str(message.from_user.first_name + " " + (message.from_user.last_name or "")),
+                str(message.from_user.dc_id)
+            )
+        except:
+            pass
+      
