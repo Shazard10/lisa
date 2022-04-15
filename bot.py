@@ -1,4 +1,4 @@
-#(©)presetrend
+#(©)Codexbotz
 
 import pyromod.listen
 from pyrogram import Client
@@ -26,7 +26,10 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL:
             try:
-                link = await self.export_chat_invite_link(FORCE_SUB_CHANNEL)
+                link = (await self.get_chat(FORCE_SUB_CHANNEL)).invite_link
+                if not link:
+                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL)
+                    link = (await self.get_chat(FORCE_SUB_CHANNEL)).invite_link
                 self.invitelink = link
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
@@ -46,7 +49,7 @@ class Bot(Client):
             sys.exit()
 
         self.set_parse_mode("html")
-        self.LOGGER(__name__).info(f"Bot Running..!\n\nCreated by 𝑷𝒓𝒆𝒔𝒆𝒕𝒓𝒆𝒏𝒅 𝕏 𝐁𝐎𝐓\nhttps://t.me/presetrend")
+        self.LOGGER(__name__).info(f"Bot Running..!\n\nCreated by 𝘾𝙤𝙙𝙚 𝕏 𝘽𝙤𝙩𝙯\nhttps://t.me/CodeXBotz")
         self.username = usr_bot_me.username
 
     async def stop(self, *args):
