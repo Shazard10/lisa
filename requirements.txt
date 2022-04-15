@@ -1,6 +1,6 @@
 # --- For-Bot-Working --------- #
 pyrogram~=1.4.1
-TgCrypto
+tgcrypto==1.2.3
 Pyromod
 pymongo[srv]==3.12.3
 motor==2.5.1
