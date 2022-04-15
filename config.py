@@ -21,6 +21,7 @@ OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 DB_URI = os.environ.get("DATABASE_URL", "")
 DATABASE_URI = os.environ.get("DATABASE_URI", "")
 DATABASE_NAME = os.environ.get("DATABASE_NAME", "Rajappan")
+SAVE_USER = os.environ.get("SAVE_USER", "no").lower()
 
 #force sub channel id, if you want enable force sub
 FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
