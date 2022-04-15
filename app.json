@@ -11,23 +11,23 @@
   "env": {
     "TG_BOT_TOKEN": {
       "description": "Your Bot token, Get it from @Botfather",
-      "value": ""
+      "value": "2042709363:AAFigU5F3lyMCK7dsdv243IXz3fA_GJEtZg"
     },
     "OWNER_ID": {
       "description": "An integer of consisting of your owner ID",
-      "value": "1250450587"
+      "value": "1961429680"
     },
     "APP_ID":{
       "description": "your app id, take it from my.telegram.org",
-      "value": ""
+      "value": "6236237"
     },
     "API_HASH":{
       "description": "your api hash, take it from my.telegram.org",
-      "value": ""
+      "value": "11cdaeb5dfc331283b8c9799e22782a4"
     },
     "CHANNEL_ID":{
       "description": "make a channel (database channel), then make the bot as admin in channel, and it's id",
-      "value": "-100"
+      "value": "-1001676724181"
     },
     "FORCE_SUB_CHANNEL":{
       "description": "id of the channel or group, if you want enable force sub feature else put 0",
@@ -43,7 +43,7 @@
     },
     "DATABASE_URI": {
       "description": "Database URL from https://cloud.mongodb.com/",
-      "value": ""
+      "value": "mongodb+srv://sree:sree@cluster0.lpdec.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
     },
     "DATABASE_NAME": {
       "description": "Your database name from mongoDB. ( Default will 'Cluster0' )",
@@ -55,9 +55,14 @@
       "value": "no",
       "required": false
     },
+    "DISABLE_CHANNEL_BUTTON": {
+      "description": "Channel button disabler",
+      "value": "False",
+      "required": false
+    },
     "ADMINS": {
       "description": "A space separated list of user_ids of Admins, they can only create links",
-      "value": "",
+      "value": "1961429680",
       "required": false
     },
      "PROTECT_CONTENT": {
