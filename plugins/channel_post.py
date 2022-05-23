@@ -43,7 +43,7 @@ async def new_post(client: Client, message: Message):
     string = f"get-{converted_id}"
     base64_string = await encode(string)
     link = f"https://t.me/{client.username}?start={base64_string}"
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("📣 𝙐𝙍𝙑𝘼𝙎𝙃𝙄𝙏𝙃𝙀𝘼𝙏𝙀𝙍𝙎 📣", url='https://t.me/UrvashiTheaters')]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("📣 Nᴇᴡ Rᴇʟᴇᴀsᴇ 📣", url='https://t.me/+b2crtyaFjLRiMDQ1')]])
     try:
         await message.edit_reply_markup(reply_markup)
     except Exception as e:
