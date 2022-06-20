@@ -12,7 +12,7 @@ from helper_func import subscribed, encode, decode, get_messages
 from database.sql import add_user, query_msg, full_userbase
 
 PHOTO = [
-    "https://telegra.ph/file/a9e50afb86fd06f537063.jpg"
+    "https://telegra.ph/file/466d972ce63a7e0407ca3.jpg"
 ]
 #=====================================================================================##
 
@@ -96,8 +96,8 @@ async def start_command(client: Client, message: Message):
                     InlineKeyboardButton("¯_( ͡° ͜ʖ ͡°)_/¯ 𝙊𝙒𝙉𝙀𝙍 ¯_( ͡° ͜ʖ ͡°)_/¯", url="https://t.me/Sanoob_Achu_18")
                 ],
                 [
-                    InlineKeyboardButton("💥 𝙂𝙍𝙊𝙐𝙋", url="https://t.me/CS_MoviesGroup"),
-                    InlineKeyboardButton("𝘾𝙃𝘼𝙉𝙉𝙀𝙇 💥", url="https://t.me/PCTheatrePrintLinks")
+                    InlineKeyboardButton("💥 𝙂𝙍𝙊𝙐𝙋", url="https://t.me/CS_Series"),
+                    InlineKeyboardButton("𝘾𝙃𝘼𝙉𝙉𝙀𝙇 💥", url="https://t.me/CSSeriesChannel")
                 ]
             ]
         )
