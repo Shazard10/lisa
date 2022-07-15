@@ -101,8 +101,8 @@ async def start_command(client: Client, message: Message):
                 ]
             ]
         )
-        await message.reply_photo(
-         photo=f"{random.choice(PHOTO)}",
+        await message.reply_video(
+         video="https://telegra.ph/file/2be6d32c164528bdf139e.mp4",
          caption = START_MSG.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
