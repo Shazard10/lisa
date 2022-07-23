@@ -12,7 +12,7 @@ from helper_func import subscribed, encode, decode, get_messages
 from database.sql import add_user, query_msg, full_userbase
 
 PHOTO = [
-    "https://telegra.ph/file/466d972ce63a7e0407ca3.jpg"
+    "https://telegra.ph/file/afb35bedcac6b4efea05b.mp4"
 ]
 #=====================================================================================##
 
