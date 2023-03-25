@@ -6,7 +6,7 @@
     "file",
     "sharing"
   ],
-  "repository": "https://github.com/fahriwetv08/filesharelinkpreset",
+  "repository": "https://github.com/Shazard10/lisa",
   "logo": "https://telegra.ph/file/752e597281857206e1a9e.jpg",
   "env": {
     "TG_BOT_TOKEN": {
